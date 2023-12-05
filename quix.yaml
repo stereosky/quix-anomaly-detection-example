@@ -144,12 +144,12 @@ deployments:
   - name: Event Detection
     application: Event Detection
     deploymentType: Service
-    version: dc1700c104b056b203b0e7fcde821fb34b6c6d84
+    version: 5eefd66c8d1c0a9c6cc040e658d135baebe97d36
     resources:
       cpu: 200
       memory: 500
       replicas: 1
-    desiredStatus: Running
+    desiredStatus: Stopped
     variables:
       - name: input
         inputType: InputTopic
