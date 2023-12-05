@@ -50,7 +50,7 @@ deployments:
         inputType: Secret
         description: ''
         required: true
-        value: mqtt_password
+        secretKey: mqtt_password
   - name: write_rawdata
     application: write_rawdata
     deploymentType: Service
@@ -75,7 +75,7 @@ deployments:
         inputType: FreeText
         description: Authentication token to access InfluxDB.
         required: true
-        value: 
+        value: 9u5knqfpxGUx_tiar86mE5qUAhLj3TQLHvfZdJSzjjnITJvosZuQdDtikB-DXMtlneZIdmaE7PCtCyTm4a3X8g==
       - name: INFLUXDB_ORG
         inputType: FreeText
         description: Organization name in InfluxDB.
@@ -125,7 +125,6 @@ deployments:
         inputType: FreeText
         description: Authentication token to access InfluxDB.
         required: true
-        value: 
       - name: INFLUXDB_ORG
         inputType: FreeText
         description: Organization name in InfluxDB.
@@ -195,7 +194,6 @@ deployments:
         inputType: FreeText
         description: Authentication token to access InfluxDB.
         required: true
-        value: 
       - name: INFLUXDB_ORG
         inputType: FreeText
         description: Organization name in InfluxDB.
