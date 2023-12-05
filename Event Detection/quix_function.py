@@ -49,4 +49,3 @@ class QuixFunction:
 
 
         self.producer_stream.timeseries.buffer.publish(df)  # Send filtered data to output topic›
-        
