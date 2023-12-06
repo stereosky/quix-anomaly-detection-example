@@ -28,8 +28,8 @@ class QuixFunction:
         # Use the Autoencoder to predict on the anomalous data
         predictions = self.model.predict(anom_data)
 
-        # Calculate reconstruction error
-        mse = np.mean(np.power(anom_data.values - predictions, 2), axis=1)
+        # Calculate reconstruction error for each sequence
+        mse = np.mean(np.power(anom_data.values[-predictions.shape[0]:] - predictions[:, -1, :], 2), axis=1)
 
         # Scale the MSE to a percentage
         min_mse = np.min(mse)
