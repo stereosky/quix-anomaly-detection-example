@@ -125,7 +125,7 @@ deployments:
         inputType: FreeText
         description: ''
         required: false
-        value: 91
+        value: 89
   - name: "\U0001F4BE InfluxDB ML Result"
     application: write-model-result
     deploymentType: Service
