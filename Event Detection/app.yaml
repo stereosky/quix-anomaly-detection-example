@@ -19,7 +19,7 @@ variables:
   - name: threshold
     inputType: FreeText
     description: ''
-    defaultValue: 60
+    defaultValue: 88
     required: false
 dockerfile: build/dockerfile
 runEntryPoint: main.py
