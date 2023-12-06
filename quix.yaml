@@ -51,50 +51,6 @@ deployments:
         description: ''
         required: true
         secretKey: mqtt_password
-  - name: influxdb-query
-    application: influxdb-query
-    deploymentType: Service
-    version: 392f510e525b2deeb85ac235e0c00aa01c538def
-    resources:
-      cpu: 200
-      memory: 500
-      replicas: 1
-    desiredStatus: Running
-    variables:
-      - name: output
-        inputType: OutputTopic
-        description: This is the Quix topic that will receive the stream
-        required: true
-        value: influxdb
-      - name: task_interval
-        inputType: FreeText
-        description: Interval to run query. Must be within the InfluxDB notation; 1s, 1m, 1h, 1d, 1w, 1mo, 1y
-        required: true
-        value: 5m
-      - name: INFLUXDB_HOST
-        inputType: FreeText
-        description: Host address for the InfluxDB instance.
-        required: true
-        value: eu-central-1-1.aws.cloud2.influxdata.com
-      - name: INFLUXDB_TOKEN
-        inputType: FreeText
-        description: Authentication token to access InfluxDB.
-        required: true
-      - name: INFLUXDB_ORG
-        inputType: FreeText
-        description: Organization name in InfluxDB.
-        required: true
-        value: 6a841c0c08328fb1
-      - name: INFLUXDB_DATABASE
-        inputType: FreeText
-        description: Database name in InfluxDB where data is stored.
-        required: true
-        value: quix
-      - name: INFLUXDB_MEASUREMENT_NAME
-        inputType: FreeText
-        description: The InfluxDB measurement to read data from. If not specified, the name of the output topic will be used
-        required: false
-        value: machine_data
   - name: Event Detection
     application: Event Detection
     deploymentType: Service
@@ -213,6 +169,51 @@ deployments:
       - name: INFLUXDB_MEASUREMENT_NAME
         inputType: FreeText
         description: The InfluxDB measurement to write data to. If not specified, the name of the input topic will be used
+        required: false
+        value: machine_data
+  - name: "\U0001F440 Machine Data from InfluxDB"
+    application: influxdb-query
+    deploymentType: Service
+    version: 392f510e525b2deeb85ac235e0c00aa01c538def
+    resources:
+      cpu: 200
+      memory: 500
+      replicas: 1
+    desiredStatus: Running
+    variables:
+      - name: output
+        inputType: OutputTopic
+        description: This is the Quix topic that will receive the stream
+        required: true
+        value: influxdb
+      - name: task_interval
+        inputType: FreeText
+        description: Interval to run query. Must be within the InfluxDB notation; 1s, 1m, 1h, 1d, 1w, 1mo, 1y
+        required: true
+        value: 5m
+      - name: INFLUXDB_HOST
+        inputType: FreeText
+        description: Host address for the InfluxDB instance.
+        required: true
+        value: eu-central-1-1.aws.cloud2.influxdata.com
+      - name: INFLUXDB_TOKEN
+        inputType: FreeText
+        description: Authentication token to access InfluxDB.
+        required: true
+        value: 9u5knqfpxGUx_tiar86mE5qUAhLj3TQLHvfZdJSzjjnITJvosZuQdDtikB-DXMtlneZIdmaE7PCtCyTm4a3X8g==
+      - name: INFLUXDB_ORG
+        inputType: FreeText
+        description: Organization name in InfluxDB.
+        required: true
+        value: 6a841c0c08328fb1
+      - name: INFLUXDB_DATABASE
+        inputType: FreeText
+        description: Database name in InfluxDB where data is stored.
+        required: true
+        value: quix
+      - name: INFLUXDB_MEASUREMENT_NAME
+        inputType: FreeText
+        description: The InfluxDB measurement to read data from. If not specified, the name of the output topic will be used
         required: false
         value: machine_data
 
