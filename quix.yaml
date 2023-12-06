@@ -54,7 +54,7 @@ deployments:
   - name: Event Detection
     application: Event Detection
     deploymentType: Service
-    version: 5eefd66c8d1c0a9c6cc040e658d135baebe97d36
+    version: ca16d66c34b4d245a3588a9b02fecda3260f4720
     resources:
       cpu: 200
       memory: 500
