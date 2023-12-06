@@ -110,7 +110,7 @@ deployments:
         inputType: FreeText
         description: Organization name in InfluxDB.
         required: false
-        value: d5868fbf2d224d9c
+        value: 6a841c0c08328fb1
       - name: INFLUXDB_DATABASE
         inputType: FreeText
         description: Database name in InfluxDB where data should be stored.
