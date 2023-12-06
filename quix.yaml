@@ -170,7 +170,7 @@ deployments:
         description: The InfluxDB measurement to write data to. If not specified, the name of the input topic will be used
         required: false
         value: mlresult
-  - name: Write Machine Data
+  - name: Write Machine Data to InfluxDB
     application: write_rawdata
     deploymentType: Service
     version: 287d0fbe673385dbe34ed402ae5e9d5676c00f19
