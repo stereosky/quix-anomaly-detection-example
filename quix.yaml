@@ -50,7 +50,7 @@ deployments:
         inputType: Secret
         description: ''
         required: true
-        value: mqtt_password
+        secretKey: mqtt_password
   - name: write_rawdata
     application: write_rawdata
     deploymentType: Service
@@ -144,7 +144,7 @@ deployments:
   - name: Event Detection
     application: Event Detection
     deploymentType: Service
-    version: 37935b11b2ca86719cd92d8d9b22c6cd71db6bfb
+    version: ca16d66c34b4d245a3588a9b02fecda3260f4720
     resources:
       cpu: 200
       memory: 500
