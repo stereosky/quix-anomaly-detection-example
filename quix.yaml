@@ -51,36 +51,6 @@ deployments:
         description: ''
         required: true
         secretKey: mqtt_password
-  - name: Event Detection
-    application: Event Detection
-    deploymentType: Service
-    version: ca16d66c34b4d245a3588a9b02fecda3260f4720
-    resources:
-      cpu: 200
-      memory: 500
-      replicas: 1
-    desiredStatus: Running
-    variables:
-      - name: input
-        inputType: InputTopic
-        description: This is the input topic for f1 data
-        required: true
-        value: influxdb
-      - name: output
-        inputType: OutputTopic
-        description: This is the output topic for hard braking events
-        required: true
-        value: detection-results
-      - name: model
-        inputType: FreeText
-        description: ''
-        required: false
-        value: jayclifford345/vibration-autoencoder
-      - name: threshold
-        inputType: FreeText
-        description: ''
-        required: false
-        value: 88
   - name: write-model-result
     application: write-model-result
     deploymentType: Service
@@ -216,6 +186,36 @@ deployments:
         description: The InfluxDB measurement to write data to. If not specified, the name of the input topic will be used
         required: false
         value: machine_data
+  - name: "\U0001F917 Anomaly Detection"
+    application: Event Detection
+    deploymentType: Service
+    version: fa02312ebc48300fa58f2c4550cb77243fa199dc
+    resources:
+      cpu: 200
+      memory: 500
+      replicas: 1
+    desiredStatus: Running
+    variables:
+      - name: input
+        inputType: InputTopic
+        description: This is the input topic for f1 data
+        required: true
+        value: influxdb
+      - name: output
+        inputType: OutputTopic
+        description: This is the output topic for hard braking events
+        required: true
+        value: detection-results
+      - name: model
+        inputType: FreeText
+        description: ''
+        required: false
+        value: jayclifford345/vibration-autoencoder
+      - name: threshold
+        inputType: FreeText
+        description: ''
+        required: false
+        value: 88
 
 # This section describes the Topics of the data pipeline
 topics:
