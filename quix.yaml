@@ -6,36 +6,6 @@ metadata:
 
 # This section describes the Deployments of the data pipeline
 deployments:
-  - name: Event Detection
-    application: Event Detection
-    deploymentType: Service
-    version: 75fd09ee56dab88122c012e53b90754f0b81a222
-    resources:
-      cpu: 200
-      memory: 500
-      replicas: 1
-    desiredStatus: Running
-    variables:
-      - name: input
-        inputType: InputTopic
-        description: This is the input topic for f1 data
-        required: true
-        value: influxdb
-      - name: output
-        inputType: OutputTopic
-        description: This is the output topic for hard braking events
-        required: true
-        value: detection-results
-      - name: model
-        inputType: FreeText
-        description: ''
-        required: false
-        value: jayclifford345/vibration-autoencoder
-      - name: threshold
-        inputType: FreeText
-        description: ''
-        required: false
-        value: 88
   - name: "\U0001F440 InfluxDB Machine Data"
     application: influxdb-query
     deploymentType: Service
@@ -216,6 +186,36 @@ deployments:
         description: The InfluxDB measurement to write data to. If not specified, the name of the input topic will be used
         required: false
         value: mlresult
+  - name: "\U0001F917 Anomaly Detection"
+    application: Event Detection
+    deploymentType: Service
+    version: 75fd09ee56dab88122c012e53b90754f0b81a222
+    resources:
+      cpu: 200
+      memory: 500
+      replicas: 1
+    desiredStatus: Running
+    variables:
+      - name: input
+        inputType: InputTopic
+        description: This is the input topic for f1 data
+        required: true
+        value: influxdb
+      - name: output
+        inputType: OutputTopic
+        description: This is the output topic for hard braking events
+        required: true
+        value: detection-results
+      - name: model
+        inputType: FreeText
+        description: ''
+        required: false
+        value: jayclifford345/vibration-autoencoder
+      - name: threshold
+        inputType: FreeText
+        description: ''
+        required: false
+        value: 88
 
 # This section describes the Topics of the data pipeline
 topics:
