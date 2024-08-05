@@ -1,0 +1,54 @@
+name: influxdb_raw_sink
+language: Python
+variables:
+  - name: input
+    inputType: InputTopic
+    defaultValue: rawdata
+    required: false
+  - name: INFLUXDB_TOKEN
+    inputType: Secret
+    defaultValue: INFLUXDB_TOKEN
+    required: false
+  - name: INFLUXDB_HOST
+    inputType: FreeText
+    defaultValue: https://us-east-1-1.aws.cloud2.influxdata.com
+    required: false
+  - name: INFLUXDB_ORG
+    inputType: FreeText
+    defaultValue: DevRel
+    required: false
+  - name: INFLUXDB_MEASUREMENT_NAME
+    inputType: FreeText
+    defaultValue: machine_data
+    required: false
+  - name: INFLUXDB_DATABASE
+    inputType: FreeText
+    defaultValue: quix
+    required: false
+  - name: INFLUXDB_TAG_KEYS
+    inputType: FreeText
+    defaultValue: ''
+    required: false
+  - name: INFLUXDB_FIELD_KEYS
+    inputType: FreeText
+    defaultValue: data,qos
+    required: false
+  - name: CONSUMER_GROUP_NAME
+    inputType: FreeText
+    defaultValue: influxdb-sink
+    required: false
+  - name: TIMESTAMP_COLUMN
+    inputType: FreeText
+    defaultValue: ''
+    required: false
+  - name: BUFFER_SIZE
+    inputType: FreeText
+    defaultValue: 1000
+    required: false
+  - name: BUFFER_TIMEOUT
+    inputType: FreeText
+    defaultValue: 1
+    required: false
+dockerfile: dockerfile
+runEntryPoint: main.py
+defaultFile: main.py

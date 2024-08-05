@@ -1,0 +1,34 @@
+name: mqtt_source
+language: Python
+variables:
+  - name: output
+    inputType: OutputTopic
+    defaultValue: rawdata
+    required: false
+  - name: mqtt_topic
+    inputType: FreeText
+    defaultValue: machine/quix
+    required: false
+  - name: mqtt_server
+    inputType: FreeText
+    defaultValue: broker.hivemq.com
+    required: false
+  - name: mqtt_port
+    inputType: FreeText
+    defaultValue: 1883
+    required: false
+  - name: mqtt_username
+    inputType: FreeText
+    defaultValue: ''
+    required: false
+  - name: mqtt_password
+    inputType: FreeText
+    defaultValue: ''
+    required: false
+  - name: mqtt_version
+    inputType: FreeText
+    defaultValue: 3.1.1
+    required: false
+dockerfile: dockerfile
+runEntryPoint: main.py
+defaultFile: main.py
