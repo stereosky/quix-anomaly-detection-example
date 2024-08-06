@@ -7,7 +7,7 @@ variables:
     required: false
   - name: INFLUXDB_TOKEN
     inputType: Secret
-    defaultValue: INFLUXDB_TOKEN
+    defaultValue: INFLUXDB_TOKEN-key
     required: false
   - name: INFLUXDB_HOST
     inputType: FreeText
