@@ -100,7 +100,33 @@ deployments:
         inputType: FreeText
         required: false
         value: 3.1.1
+  - name: anomaly_detector
+    application: anomaly_detector
+    version: latest
+    deploymentType: Service
+    resources:
+      cpu: 200
+      memory: 800
+      replicas: 1
+    variables:
+      - name: input
+        inputType: InputTopic
+        required: false
+        value: rawdata
+      - name: output
+        inputType: OutputTopic
+        required: false
+        value: detection-results
+      - name: HUGGING_FACE_MODEL
+        inputType: FreeText
+        required: false
+        value: jayclifford345/vibration-autoencoder
+      - name: ANOMALY_THRESHOLD_PC
+        inputType: FreeText
+        required: false
+        value: 60
 
 # This section describes the Topics of the data pipeline
 topics:
   - name: rawdata
+  - name: detection-results

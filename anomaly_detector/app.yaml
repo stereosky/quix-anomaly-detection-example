@@ -1,0 +1,22 @@
+name: anomaly_detector
+language: Python
+variables:
+  - name: input
+    inputType: InputTopic
+    defaultValue: rawdata
+    required: false
+  - name: output
+    inputType: OutputTopic
+    defaultValue: detection-results
+    required: false
+  - name: HUGGING_FACE_MODEL
+    inputType: FreeText
+    defaultValue: jayclifford345/vibration-autoencoder
+    required: false
+  - name: ANOMALY_THRESHOLD_PC
+    inputType: FreeText
+    defaultValue: 60
+    required: false
+dockerfile: dockerfile
+runEntryPoint: main.py
+defaultFile: main.py

@@ -1,0 +1,8 @@
+huggingface-hub
+keras
+numpy
+pandas==1.5.3
+python-dotenv
+quixstreams~=2.8.0
+scikit-learn
+tensorflow
